@@ -20,7 +20,7 @@ from PyQt5.QtWidgets import (
 from PyQt5.QtGui import QIcon, QFont
 from PyQt5.QtCore import Qt
 
-from database import recipes
+import database
 
 class RecipeApp(QWidget):
     
@@ -34,15 +34,17 @@ class RecipeApp(QWidget):
         self.setFont(newFont)
 
         self.recipeList = QListWidget(self)
-        for recipe in recipes:
-            item = RecipeItem(recipe)
-            self.recipeList.addItem(item)
+        for recipe in database.RECIPES:
+            for day in recipe.days:
+                item = RecipeItem(recipe.name, day)
+                self.recipeList.addItem(item)
         self.recipeList.show()
         self.recipeList.itemActivated.connect(self.selectRecipe)
 
         self.selectedRecipeList = QListWidget(self)
         self.selectedRecipeList.show()
         self.selectedRecipeList.itemActivated.connect(self.deselectRecipe)
+        self.selectedRecipeList.setDragDropMode(self.selectedRecipeList.InternalMove)
 
         self.ingredientList = QListWidget(self)
         self.ingredientList.show()
@@ -54,6 +56,7 @@ class RecipeApp(QWidget):
 
         makeButton = QPushButton("Make")
         quitButton = QPushButton("Quit")
+        quitButton.clicked.connect(self.close)
  
         buttonHBox = QHBoxLayout()
         buttonHBox.addStretch(1)
@@ -67,7 +70,7 @@ class RecipeApp(QWidget):
         self.setLayout(vbox)    
         
         self.setWindowTitle('Webb Family Recipes')    
-        self.show()
+        self.showMaximized()
 
     def selectRecipe(self, recipe):
         self.selectedRecipeList.addItem(recipe.copy())
@@ -79,22 +82,35 @@ class RecipeApp(QWidget):
 
     def updateIngredients(self):
         self.ingredientList.clear()
+        ingredients = {}
         for recipeIndex in range(self.selectedRecipeList.count()):
             recipe = self.selectedRecipeList.item(recipeIndex)
             for ingredient in recipe.ingredients:
-                self.ingredientList.addItem(QListWidgetItem(str(ingredient)))
+                name, amount, unit = ingredient.name, ingredient.amount, ingredient.unit
+                if name not in ingredients:
+                    ingredients[name] = {}
+                if unit not in ingredients[name]:
+                    ingredients[name][unit] = 0
+                ingredients[name][unit] += amount
+        for ingredient in ingredients:
+            unitString = ", ".join("{} {}".format(amount, unit) for unit, amount in ingredients[ingredient].items())
+            self.ingredientList.addItem( QListWidgetItem("{} {}".format(ingredient, unitString)))
 
 class RecipeItem(QListWidgetItem):
 
-    def __init__(self, name):
-        super().__init__(name)
-        if name not in recipes:
-            raise Exception("Recipe {} not found!".format(name))
+    def __init__(self, name, day):
+        super().__init__("{} - {}".format(day, name))
+        if name not in database.RECIPES_INDEX:
+            raise Exception("Recipe {} not found.".format(name))
+        recipe = database.RECIPES_INDEX[name]
+        if day not in recipe.days:
+            raise Exception("Recipe {} not valid for day {}.".format(name, day))
         self.name = name
-        self.ingredients = recipes[name]
+        self.day = day
+        self.ingredients = recipe.ingredients
 
     def copy(self):
-        return RecipeItem(self.name)
+        return RecipeItem(self.name, self.day)
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
