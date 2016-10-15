@@ -20,6 +20,8 @@ from PyQt5.QtWidgets import (
 from PyQt5.QtGui import QIcon, QFont
 from PyQt5.QtCore import Qt
 
+from database import recipes
+
 class RecipeApp(QWidget):
     
     def __init__(self):
@@ -31,30 +33,24 @@ class RecipeApp(QWidget):
         newFont = QFont("Laksaman", 14) 
         self.setFont(newFont)
 
-        recipeList = QListWidget(self)
-        for i in range(20):
-            item = QListWidgetItem("Recipe {}".format(i))
-            recipeList.addItem(item)
-        recipeList.show()
+        self.recipeList = QListWidget(self)
+        for recipe in recipes:
+            item = RecipeItem(recipe)
+            self.recipeList.addItem(item)
+        self.recipeList.show()
+        self.recipeList.itemActivated.connect(self.selectRecipe)
 
-        selectedRecipeList = QListWidget(self)
-        for i in range(10):
-            item = QListWidgetItem("Selected Recipe {}".format(i))
-            selectedRecipeList.addItem(item)
-        selectedRecipeList.show()
+        self.selectedRecipeList = QListWidget(self)
+        self.selectedRecipeList.show()
+        self.selectedRecipeList.itemActivated.connect(self.deselectRecipe)
 
-        ingredientList = QListWidget(self)
-        for i in range(30):
-            item = QListWidgetItem("Ingredient {}".format(i))
-            ingredientList.addItem(item)
-        ingredientList.show()
-        ingredientList.setSelectionMode(QAbstractItemView.ExtendedSelection)
- 
+        self.ingredientList = QListWidget(self)
+        self.ingredientList.show()
  
         listHBox = QHBoxLayout()
-        listHBox.addWidget(recipeList)
-        listHBox.addWidget(selectedRecipeList)
-        listHBox.addWidget(ingredientList)
+        listHBox.addWidget(self.recipeList)
+        listHBox.addWidget(self.selectedRecipeList)
+        listHBox.addWidget(self.ingredientList)
 
         makeButton = QPushButton("Make")
         quitButton = QPushButton("Quit")
@@ -72,6 +68,33 @@ class RecipeApp(QWidget):
         
         self.setWindowTitle('Webb Family Recipes')    
         self.show()
+
+    def selectRecipe(self, recipe):
+        self.selectedRecipeList.addItem(recipe.copy())
+        self.updateIngredients()
+
+    def deselectRecipe(self, recipe):
+        self.selectedRecipeList.takeItem(self.selectedRecipeList.row(recipe))
+        self.updateIngredients()
+
+    def updateIngredients(self):
+        self.ingredientList.clear()
+        for recipeIndex in range(self.selectedRecipeList.count()):
+            recipe = self.selectedRecipeList.item(recipeIndex)
+            for ingredient in recipe.ingredients:
+                self.ingredientList.addItem(QListWidgetItem(str(ingredient)))
+
+class RecipeItem(QListWidgetItem):
+
+    def __init__(self, name):
+        super().__init__(name)
+        if name not in recipes:
+            raise Exception("Recipe {} not found!".format(name))
+        self.name = name
+        self.ingredients = recipes[name]
+
+    def copy(self):
+        return RecipeItem(self.name)
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
