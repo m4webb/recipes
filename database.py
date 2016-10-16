@@ -4,13 +4,14 @@ UNIT_CANS = "cans"
 UNIT_JARS = "jars"
 UNIT_EMPTY = ""
 
-DAY_MONDAY = "Monday"
-DAY_TUESDAY = "Tuesday"
-DAY_WEDNESDAY = "Wednesday"
-DAY_THURSDAY = "Thursday"
-DAY_FRIDAY = "Friday"
-DAY_SATURDAY = "Saturday"
-DAY_SUNDAY = "Sunday"
+TAG_MONDAY = "Monday"
+TAG_TUESDAY = "Tuesday"
+TAG_WEDNESDAY = "Wednesday"
+TAG_THURSDAY = "Thursday"
+TAG_FRIDAY = "Friday"
+TAG_SATURDAY = "Saturday"
+TAG_SUNDAY = "Sunday"
+TAG_SIDE = "Side"
 
 STORE_COSTCO = "Costco"
 STORE_WINCO = "Winco"
@@ -34,9 +35,9 @@ class Ingredient():
         return "Ingredient({name})".format(name=self.name)
 
 class Recipe():
-    def __init__(self, name = "", days = [], ingredients = []):
+    def __init__(self, name = "", tags = [], ingredients = []):
         self.name = name
-        self.days = days
+        self.tags = tags
         self.ingredients = ingredients
 
     def __repr__(self):
@@ -63,10 +64,11 @@ ING_FLOUR = Ingredient(
 RECIPES = [
     Recipe(
         name = "Pizza",
-        days = [
-            DAY_FRIDAY,
-            DAY_SATURDAY,
-            DAY_SUNDAY,
+        tags = [
+            TAG_FRIDAY,
+            TAG_SATURDAY,
+            TAG_SUNDAY,
+            TAG_SIDE,
             ],
         ingredients = [
             (ING_FLOUR, Amount(quantity = 4, unit = UNIT_CUPS)),
@@ -75,9 +77,9 @@ RECIPES = [
         ),
     Recipe(
         name = "Pasta",
-        days = [
-            DAY_WEDNESDAY,
-            DAY_FRIDAY,
+        tags = [
+            TAG_WEDNESDAY,
+            TAG_FRIDAY,
             ],
         ingredients = [
             (ING_MOZZARELLA_CHEESE, Amount(quantity = 8, unit = UNIT_OZ)),
