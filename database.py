@@ -6,8 +6,9 @@ UNIT_LOAVES = "loaves"
 UNIT_TBSPS = "tbsps"
 UNIT_TSPS = "tsps"
 UNIT_CLOVES = "cloves"
-UNIT_EMPTY = ""
 UNIT_LBS = "lbs"
+UNIT_SLICES = "slices"
+UNIT_EMPTY = ""
 
 TAG_MONDAY = "Monday"
 TAG_TUESDAY = "Tuesday"
@@ -20,11 +21,13 @@ TAG_SIDE = "Side"
 TAG_EASY = "Easy"
 TAG_FUN = "Fun"
 TAG_GUESTS = "Guests"
+TAG_CIRCUMSTANCES = "Circumstances"
 
 STORE_COSTCO = "Costco"
 STORE_WINCO = "Winco"
 STORE_HARMONS = "Harmons"
 STORE_GROCERY = "Grocery"
+STORE_SPECIALTY = "Specialty"
 
 SECTION_GROCERY = "Grocery"
 SECTION_PRODUCE = "Produce"
@@ -33,6 +36,8 @@ SECTION_BAKERY = "Bakery"
 SECTION_BAKING = "Baking"
 SECTION_BULK = "Bulk"
 SECTION_FROZEN = "Frozen"
+SECTION_SPECIALTY = "Specialty"
+SECTION_ASIAN = "Asian"
 
 PURCHASE_WEEKLY = "Purchase weekly"
 PURCHASE_MONTHLY = "Purchase monthly"
@@ -373,7 +378,7 @@ ING_YEAST = IngredientKind(
 
 ING_MAYONNAISE = IngredientKind(
     name = "Mayonnaise",
-    unit = UNIT_CUPS,
+    unit = UNIT_TBSPS,
     store = STORE_WINCO,
     section = SECTION_GROCERY,
     purchase = PURCHASE_MONTHLY,
@@ -523,7 +528,298 @@ ING_TORTILLA_CHIPS = IngredientKind(
     purchase = PURCHASE_WEEKLY,
     )
 
+ING_PATO = IngredientKind(
+    name = "Pato",
+    unit = UNIT_CANS,
+    store = STORE_WINCO,
+    section = SECTION_GROCERY,
+    purchase = PURCHASE_MONTHLY,
+    )
+
+ING_BUTTER = IngredientKind(
+    name = "Butter",
+    unit = UNIT_TBSPS,
+    store = STORE_COSTCO,
+    section = SECTION_DAIRY,
+    purchase = PURCHASE_MONTHLY,
+    )
+
+ING_SLICED_BREAD = IngredientKind(
+    name = "Sliced bread",
+    unit = UNIT_SLICES,
+    store = STORE_GROCERY,
+    section = SECTION_GROCERY,
+    purchase = PURCHASE_WEEKLY,
+    )
+
+ING_CHEESE = IngredientKind(
+    name = "Cheese",
+    unit = UNIT_OZS,
+    store = STORE_GROCERY,
+    section = SECTION_DAIRY,
+    purchase = PURCHASE_WEEKLY,
+    )
+
+ING_SOBA_NOODLES = IngredientKind(
+    name = "Soba noodles",
+    unit = UNIT_CUPS,
+    store = STORE_WINCO,
+    section = SECTION_PRODUCE,
+    purchase = PURCHASE_MONTHLY,
+    )
+
+ING_FROZEN_EDAMAME = IngredientKind(
+    name = "Frozen edamame",
+    unit = UNIT_CUPS,
+    store = STORE_WINCO,
+    section = SECTION_FROZEN,
+    purchase = PURCHASE_MONTHLY,
+    )
+
+ING_PEANUT_BUTTER = IngredientKind(
+    name = "Peanut butter",
+    unit = UNIT_TBSPS,
+    store = STORE_WINCO,
+    section = SECTION_GROCERY,
+    purchase = PURCHASE_MONTHLY,
+    )
+
+ING_SESAME_SEEDS = IngredientKind(
+    name = "Sesame seeds",
+    unit = UNIT_TBSPS,
+    store = STORE_WINCO,
+    section = SECTION_BULK,
+    purchase = PURCHASE_MONTHLY,
+    )
+
+ING_SOY_SAUCE = IngredientKind(
+    name = "Soy sauce",
+    unit = UNIT_TBSPS,
+    store = STORE_WINCO,
+    section = SECTION_GROCERY,
+    purchase = PURCHASE_MONTHLY,
+    )
+
+ING_MISO = IngredientKind(
+    name = "Miso",
+    unit = UNIT_TBSPS,
+    store = STORE_SPECIALTY,
+    section = SECTION_SPECIALTY,
+    purchase = PURCHASE_MONTHLY,
+    )
+
+ING_PREPARED_SOUP = IngredientKind(
+    name = "Prepared soup",
+    unit = UNIT_CUPS,
+    store = STORE_GROCERY,
+    section = SECTION_GROCERY,
+    purchase = PURCHASE_WEEKLY,
+    )
+
+ING_HONEY = IngredientKind(
+    name = "Honey",
+    unit = UNIT_TBSPS,
+    store = STORE_WINCO,
+    section = SECTION_GROCERY,
+    purchase = PURCHASE_MONTHLY,
+    )
+
+ING_RICE_WINE_VINEGAR = IngredientKind(
+    name = "Rice wine vinegar",
+    unit = UNIT_TBSPS,
+    store = STORE_WINCO,
+    section = SECTION_ASIAN,
+    purchase = PURCHASE_MONTHLY,
+    )
+
+ING_SESAME_OIL = IngredientKind(
+    name = "Sesame oil",
+    unit = UNIT_TBSPS,
+    store = STORE_WINCO,
+    section = SECTION_ASIAN,
+    purchase = PURCHASE_MONTHLY,
+    )
+
+ING_SRIRACHA = IngredientKind(
+    name = "Sriracha",
+    unit = UNIT_TBSPS,
+    store = STORE_WINCO,
+    section = SECTION_ASIAN,
+    purchase = PURCHASE_MONTHLY,
+    )
+
+ING_RED_BELL_PEPPERS = IngredientKind(
+    name = "Red bell peppers",
+    unit = UNIT_EMPTY,
+    store = STORE_GROCERY,
+    section = SECTION_PRODUCE,
+    purchase = PURCHASE_WEEKLY,
+    )
+
+ING_PORTABELLA_MUSHROOM_CAPS = IngredientKind(
+    name = "Portabella mushroom caps",
+    unit = UNIT_EMPTY,
+    store = STORE_GROCERY,
+    section = SECTION_PRODUCE,
+    purchase = PURCHASE_WEEKLY,
+    )
+
+ING_WATER_CHESTNUTS = IngredientKind(
+    name = "Water chestnuts",
+    unit = UNIT_CANS,
+    store = STORE_WINCO,
+    section = SECTION_ASIAN,
+    purchase = PURCHASE_MONTHLY,
+    )
+
+ING_GREEN_ONIONS = IngredientKind(
+    name = "Green onions",
+    unit = UNIT_EMPTY,
+    store = STORE_GROCERY,
+    section = SECTION_PRODUCE,
+    purchase = PURCHASE_WEEKLY,
+    )
+
+ING_WALNUTS = IngredientKind(
+    name = "Walnuts",
+    unit = UNIT_CUPS,
+    store = STORE_WINCO,
+    section = SECTION_BULK,
+    purchase = PURCHASE_MONTHLY,
+    )
+
+ING_BUTTER_LETTUCE = IngredientKind(
+    name = "Butter lettuce",
+    unit = UNIT_EMPTY,
+    store = STORE_GROCERY,
+    section = SECTION_PRODUCE,
+    purchase = PURCHASE_WEEKLY,
+    )
+
+ING_SUSHI_RICE = IngredientKind(
+    name = "Sushi rice",
+    unit = UNIT_CUPS,
+    store = STORE_WINCO,
+    section = SECTION_GROCERY,
+    purchase = PURCHASE_MONTHLY,
+    )
+
+ING_CARROTS = IngredientKind(
+    name = "Carrots",
+    unit = UNIT_EMPTY,
+    store = STORE_GROCERY,
+    section = SECTION_PRODUCE,
+    purchase = PURCHASE_WEEKLY,
+    )
+
+ING_GINGER = IngredientKind(
+    name = "Ginger",
+    unit = UNIT_TBSPS,
+    store = STORE_GROCERY,
+    section = SECTION_PRODUCE,
+    purchase = PURCHASE_WEEKLY,
+    )
+
 RECIPES = [
+    Recipe(
+        name = "Asian Lettuce Wraps",
+        url = "http://ohmyveggies.com/asian-lettuce-wraps/",
+        tags = [
+            TAG_THURSDAY,
+            ],
+        ingredients = [
+            ING_SOY_SAUCE(4, UNIT_TBSPS),
+            ING_PEANUT_BUTTER(2, UNIT_TBSPS),
+            ING_MISO(1, UNIT_TBSPS),
+            ING_HONEY(1, UNIT_TBSPS),
+            ING_RICE_WINE_VINEGAR(0.67, UNIT_TBSPS),
+            ING_GARLIC(1, UNIT_CLOVES),
+            ING_SESAME_OIL(0.67, UNIT_TBSPS),
+            ING_SRIRACHA(0.33, UNIT_TBSPS),
+            ING_OLIVE_OIL(2, UNIT_TBSPS),
+            ING_YELLOW_ONIONS(1),
+            ING_RED_BELL_PEPPERS(1),
+            ING_PORTABELLA_MUSHROOM_CAPS(1),
+            ING_GINGER(0.67, UNIT_TBSPS),
+            ING_WATER_CHESTNUTS(1, UNIT_CANS),
+            ING_GREEN_ONIONS(1),
+            ING_WALNUTS(0.33, UNIT_CUPS),
+            ING_BUTTER_LETTUCE(1),
+            ING_SUSHI_RICE(1, UNIT_CUPS),
+            ING_CARROTS(3),
+            ING_CILANTRO(0.5),
+            ING_SESAME_SEEDS(2, UNIT_TBSPS),
+            ],
+        ),
+    Recipe(
+        name = "Eating Out",
+        tags = [
+            TAG_EASY,
+            TAG_CIRCUMSTANCES,
+            ],
+        ingredients = [
+            ],
+        ),
+    Recipe(
+        name = "Eating Away from Home",
+        tags = [
+            TAG_CIRCUMSTANCES,
+            ],
+        ingredients = [
+            ],
+        ),
+    Recipe(
+        name = "Prepared Soup",
+        tags = [
+            TAG_EASY,
+            ],
+        ingredients = [
+            ING_PREPARED_SOUP(8, UNIT_CUPS),
+            ],
+        ),
+    Recipe(
+        name = "Beck's Peanut Soba",
+        tags = [
+            TAG_THURSDAY,
+            ],
+        ingredients = [
+            ING_SOBA_NOODLES(4, UNIT_CUPS),
+            ING_FROZEN_EDAMAME(3, UNIT_CUPS),
+            ING_PEANUT_BUTTER(6, UNIT_TBSPS),
+            ING_SESAME_SEEDS(2, UNIT_TBSPS),
+            ING_SOY_SAUCE(2, UNIT_TBSPS),
+            ING_MISO(1, UNIT_TBSPS),
+            ],
+        ),
+    Recipe(
+        name = "Classic Paninis",
+        tags = [
+            TAG_WEDNESDAY,
+            ],
+        ingredients = [
+            ING_BUTTER(2, UNIT_TBSPS),
+            ING_SLICED_BREAD(8, UNIT_SLICES),
+            ING_MAYONNAISE(2, UNIT_TBSPS),
+            ING_RED_ONIONS(1),
+            ING_BELL_PEPPERS(1),
+            ING_MUSHROOMS(0.5, UNIT_LBS),
+            ING_SPINACH(1, UNIT_CUPS),
+            ING_CHEESE_MOZZARELLA(4, UNIT_OZS),
+            ],
+        ),
+    Recipe(
+        name = "Classic Bean Burritos",
+        tags = [
+            TAG_TUESDAY,
+            ],
+        ingredients = [
+            ING_TORTILLAS(6),
+            ING_BLACK_BEANS(1, UNIT_CANS),
+            ING_ONION(1),
+            ING_CHEESE_MOZZARELLA(6, UNIT_OZS),
+            ING_PATO(1, UNIT_CANS),
+            ],
+        ),
     Recipe(
         name = "Vegetarian Taco Salad",
         url = "http://www.eatingwell.com/recipe/250064/vegetarian-taco-salad/",
@@ -622,7 +918,7 @@ RECIPES = [
             TAG_WEDNESDAY,
             ],
         ingredients = [
-            ING_MAYONNAISE(0.25, UNIT_CUPS),
+            ING_MAYONNAISE(3, UNIT_TBSPS),
             ING_GARLIC(3, UNIT_CLOVES),
             ING_LEMON(1),
             ING_OLIVE_OIL(2, UNIT_TBSPS),
@@ -643,7 +939,7 @@ RECIPES = [
             ING_VEGGIE_BURGERS(4),
             ING_AVOCADOS(1),
             ING_RED_ONIONS(0.5),
-            ING_MAYONNAISE(0.5, UNIT_CUPS),
+            ING_MAYONNAISE(3, UNIT_TBSPS),
             ING_BURGER_BUNS(4),
             ING_GREEN_LEAF_LETTUCE(1),
             ],
