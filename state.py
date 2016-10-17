@@ -13,8 +13,10 @@ class MealPlan():
             while sunday.dayOfWeek() != 7:
                 sunday = sunday.addDays(-1)
             return "Week starting {}".format(sunday.toString("MMMM dd"))
+        elif purchase == database.PURCHASE_DAY_OF:
+            return "_Day of {}".format(date.toString("dddd MMMM dd"))
         else:
-            raise Exception("Cannot resolve purchase policy {}".format(purchase))
+            raise Exception('Cannot resolve purchase policy "{}"'.format(purchase))
 
     def getIngredients(self, skipUnrequired=True):
         ingredients = {}

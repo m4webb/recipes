@@ -168,7 +168,10 @@ class RecipeApp(QWidget):
             contents.append("")
             contents.append("        {}".format(date.toString(SINGLE_DAY_FORMAT)))
             for recipe in self.mealPlan.meals[date]:
-                contents.append("              {}".format(recipe.name))
+                if recipe.url:
+                    contents.append("              {} ({})".format(recipe.name, recipe.url))
+                else:
+                    contents.append("              {}".format(recipe.name))
 
         doc.setPlainText("\n".join(contents))
         self.text.setDocument(doc)
