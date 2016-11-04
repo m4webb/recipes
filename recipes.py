@@ -1,6 +1,5 @@
-import sys
 from PyQt5.QtWidgets import (
-        QWidget, QAction, qApp, QApplication, QListView, QListWidget, QListWidgetItem, QPushButton, QHBoxLayout, QVBoxLayout,
+        QWidget, QAction, qApp, QListView, QListWidget, QListWidgetItem, QPushButton, QHBoxLayout, QVBoxLayout,
         QAbstractItemView, QCalendarWidget, QTextEdit, QTabWidget
         )
 from PyQt5.QtGui import QIcon, QFont, QColor, QTextDocument, QPalette
@@ -146,7 +145,6 @@ class RecipeApp(QWidget):
         contents = []
 
         contents.append("Shopping List")
-
         ingredients = self.mealPlan.getIngredients(skipUnrequired = True)
         for purchase in sorted(ingredients.keys()):
             contents.append("")
@@ -223,8 +221,3 @@ class RecipeCalendar(QCalendarWidget):
             painter.setFont(font)
         painter.drawText(rect, Qt.AlignCenter, "{}".format(date.day()))
         painter.restore()
-
-if __name__ == '__main__':
-    app = QApplication(sys.argv)
-    ex = RecipeApp()
-    sys.exit(app.exec_()) 

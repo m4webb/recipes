@@ -22,6 +22,8 @@ TAG_EASY = "Easy"
 TAG_FUN = "Fun"
 TAG_GUESTS = "Guests"
 TAG_CIRCUMSTANCES = "Circumstances"
+TAG_SOUPS = "Soups"
+TAG_FISH = "Fish"
 
 STORE_COSTCO = "Costco"
 STORE_WINCO = "Winco"
@@ -178,7 +180,7 @@ ING_OREGANO = IngredientKind(
 
 ING_RED_WINE_VINEGAR = IngredientKind(
     name = "Red wine vingegar",
-    unit = UNIT_CUPS,
+    unit = UNIT_TBSPS,
     store = STORE_WINCO,
     section = SECTION_GROCERY,
     purchase = PURCHASE_MONTHLY,
@@ -336,8 +338,16 @@ ING_CUMIN = IngredientKind(
     purchase = PURCHASE_MONTHLY,
     )
 
+ING_PAPRIKA = IngredientKind(
+    name = "Paprika",
+    unit = UNIT_TSPS,
+    store = STORE_WINCO,
+    section = SECTION_BULK,
+    purchase = PURCHASE_MONTHLY,
+    )
+
 ING_SMOKED_PAPRIKA = IngredientKind(
-    name = "Smoked Paprika",
+    name = "Smoked paprika",
     unit = UNIT_TSPS,
     store = STORE_WINCO,
     section = SECTION_BULK,
@@ -720,7 +730,239 @@ ING_GINGER = IngredientKind(
     purchase = PURCHASE_WEEKLY,
     )
 
+ING_APPLES = IngredientKind(
+    name = "Apples",
+    unit = UNIT_EMPTY,
+    store = STORE_GROCERY,
+    section = SECTION_PRODUCE,
+    purchase = PURCHASE_WEEKLY,
+    )
+
+ING_DIJON_MUSTARD = IngredientKind(
+    name = "Dijon mustard",
+    unit = UNIT_TBSPS,
+    store = STORE_WINCO,
+    section = SECTION_GROCERY,
+    purchase = PURCHASE_MONTHLY,
+    )
+
+ING_TOMATOES = IngredientKind(
+    name = "Tomatoes",
+    unit = UNIT_EMPTY,
+    store = STORE_GROCERY,
+    section = SECTION_PRODUCE,
+    purchase = PURCHASE_WEEKLY,
+    )
+
+ING_SILKEN_TOFU = IngredientKind(
+    name = "Silken Tofu",
+    unit = UNIT_OZS,
+    store = STORE_WINCO,
+    section = SECTION_PRODUCE,
+    purchase = PURCHASE_MONTHLY,
+    )
+
+ING_BONITO_FLAKES = IngredientKind(
+    name = "Bonito flakes",
+    unit = UNIT_OZS,
+    store = STORE_SPECIALTY,
+    section = SECTION_SPECIALTY,
+    purchase = PURCHASE_MONTHLY,
+    )
+
+ING_KOMBU = IngredientKind(
+    name = "Kombu",
+    unit = UNIT_OZS,
+    store = STORE_SPECIALTY,
+    section = SECTION_SPECIALTY,
+    purchase = PURCHASE_MONTHLY,
+    )
+
+ING_WAKAME = IngredientKind(
+    name = "Wakame",
+    unit = UNIT_OZS,
+    store = STORE_SPECIALTY,
+    section = SECTION_SPECIALTY,
+    purchase = PURCHASE_MONTHLY,
+    )
+
+ING_PUMPKIN_PUREE = IngredientKind(
+    name = "Pumpkin puree",
+    unit = UNIT_OZS,
+    store = STORE_WINCO,
+    section = SECTION_GROCERY,
+    purchase = PURCHASE_MONTHLY,
+    )
+
+ING_SHALLOTS = IngredientKind(
+    name = "Shallots",
+    unit = UNIT_EMPTY,
+    store = STORE_GROCERY,
+    section = SECTION_GROCERY,
+    purchase = PURCHASE_WEEKLY,
+    )
+
+ING_COCONUT_MILK = IngredientKind(
+    name = "Coconut milk",
+    unit = UNIT_CANS,
+    store = STORE_WINCO,
+    section = SECTION_ASIAN,
+    purchase = PURCHASE_MONTHLY,
+    )
+
+ING_CINNAMON = IngredientKind(
+    name = "Cinnamon",
+    unit = UNIT_TBSPS,
+    store = STORE_WINCO,
+    section = SECTION_BULK,
+    purchase = PURCHASE_WEEKLY,
+    )
+
+ING_NUTMEG = IngredientKind(
+    name = "Nutmeg",
+    unit = UNIT_TBSPS,
+    store = STORE_WINCO,
+    section = SECTION_BULK,
+    purchase = PURCHASE_WEEKLY,
+    )
+
+ING_EGGS = IngredientKind(
+    name = "Eggs",
+    unit = UNIT_EMPTY,
+    store = STORE_GROCERY,
+    section = SECTION_DAIRY,
+    purchase = PURCHASE_WEEKLY,
+    )
+
+ING_BLEU_CHEESE = IngredientKind(
+    name = "Bleu cheese",
+    unit = UNIT_OZS,
+    store = STORE_GROCERY,
+    section = SECTION_DAIRY,
+    purchase = PURCHASE_WEEKLY,
+    )
+
+ING_TILAPIA_FILLETS = IngredientKind(
+    name = "Tilapia fillets",
+    unit = UNIT_EMPTY,
+    store = STORE_COSTCO,
+    section = SECTION_FROZEN,
+    purchase = PURCHASE_MONTHLY,
+    )
+
+ING_THYME = IngredientKind(
+    name = "Thyme",
+    unit = UNIT_TBSPS,
+    store = STORE_WINCO,
+    section = SECTION_BULK,
+    purchase = PURCHASE_MONTHLY,
+    )
+
+ING_BLACK_PEPPER = IngredientKind(
+    name = "Black pepper",
+    unit = UNIT_TSPS,
+    store = STORE_WINCO,
+    section = SECTION_BULK,
+    purchase = PURCHASE_MONTHLY,
+    )
+
+ING_PARMESAN_CHEESE = IngredientKind(
+    name = "Parmesean cheese",
+    unit = UNIT_OZS,
+    store = STORE_COSTCO,
+    section = SECTION_DAIRY,
+    purchase = PURCHASE_MONTHLY,
+    )
+
+ING_PARSLEY = IngredientKind(
+    name = "Parsley",
+    unit = UNIT_TBSPS,
+    store = STORE_GROCERY,
+    section = SECTION_PRODUCE,
+    purchase = PURCHASE_WEEKLY,
+    )
+
 RECIPES = [
+    Recipe(
+        name = "Parmesean Crusted Tilapia FIllets",
+        url = "http://allrecipes.com/recipe/228056/parmesan-crusted-tilapia-fillets/",
+        tags = [
+            TAG_FISH,
+            ],
+        ingredients = [
+            ING_TILAPIA_FILLETS(4),
+            ING_PARMESAN_CHEESE(6, UNIT_OZS),
+            ING_PARSLEY(1, UNIT_TBSPS),
+            ING_OLIVE_OIL(2, UNIT_TBSPS),
+            ING_PAPRIKA(2, UNIT_TSPS),
+            ING_BLACK_PEPPER(1, UNIT_TSPS),
+            ],
+        ),        
+    Recipe(
+        name = "Cajun-Spiced Tilapia",
+        url = "http://www.food.com/recipe/cajun-spiced-tilapia-487398",
+        tags = [
+            TAG_FISH
+            ],
+        ingredients = [
+            ING_TILAPIA_FILLETS(4),
+            ING_THYME(0.33, UNIT_TBSPS),
+            ING_OREGANO(0.33, UNIT_TBSPS),
+            ING_BLACK_PEPPER(0.33, UNIT_TSPS),
+            ING_CAYENNE_PEPPER(0.25, UNIT_TSPS),
+            ING_PAPRIKA(2, UNIT_TSPS),
+            ING_GARLIC_POWDER(0.5, UNIT_TSPS),
+            ING_BUTTER(3, UNIT_TBSPS),
+            ],
+        ),
+    Recipe(
+        name = "Simple Pumpkin Soup",
+        url = "http://minimalistbaker.com/simple-pumpkin-soup/",
+        tags = [
+            TAG_SOUPS,
+            ],
+        ingredients = [
+            ING_PUMPKIN_PUREE(29, UNIT_OZS),
+            ING_SHALLOTS(2),
+            ING_GARLIC(3, UNIT_CLOVES),
+            ING_VEGETABLE_STOCK(4, UNIT_CUPS),
+            ING_COCONUT_MILK(1, UNIT_CANS),
+            ING_CINNAMON(0.25, UNIT_TBSPS),
+            ING_NUTMEG(0.25, UNIT_TBSPS),
+            ING_WALNUTS(0.5, UNIT_CUPS),
+            ],
+        ),
+    Recipe(
+        name = "Miso Soup",
+        tags = [
+            TAG_THURSDAY,
+            ],
+        ingredients = [
+            ING_BONITO_FLAKES(2, UNIT_OZS),
+            ING_KOMBU(1, UNIT_OZS),
+            ING_WAKAME(1, UNIT_OZS),
+            ING_MISO(4, UNIT_TBSPS),
+            ING_EGGS(8),
+            ING_SILKEN_TOFU(12, UNIT_OZS),
+            ING_GREEN_ONIONS(1),
+            ],
+        ),
+    Recipe(
+        name = "Salad - Bleu Cheese and Walnut",
+        tags = [
+            TAG_MONDAY,
+            ],
+        ingredients = [
+            ING_SPINACH(6, UNIT_CUPS),
+            ING_BLEU_CHEESE(6, UNIT_OZS),
+            ING_WALNUTS(1, UNIT_CUPS),
+            ING_OLIVE_OIL(3, UNIT_TBSPS),
+            ING_RED_WINE_VINEGAR(1, UNIT_TBSPS),
+            ING_BASIL(1, UNIT_TBSPS),
+            ING_APPLES(2),
+            ING_DIJON_MUSTARD(1, UNIT_TBSPS),
+            ],
+        ),
     Recipe(
         name = "Asian Lettuce Wraps",
         url = "http://ohmyveggies.com/asian-lettuce-wraps/",
@@ -859,7 +1101,7 @@ RECIPES = [
             ING_TOMATO_PASTE(1, UNIT_CANS),
             ING_BASIL(1, UNIT_TBSPS),
             ING_OREGANO(0.5, UNIT_TBSPS),
-            ING_RED_WINE_VINEGAR(0.1, UNIT_CUPS),
+            ING_RED_WINE_VINEGAR(1, UNIT_TBSPS),
             ING_MUSHROOMS(1, UNIT_LBS),
             ING_YEAST(1, UNIT_TBSPS),
             ],
@@ -942,6 +1184,8 @@ RECIPES = [
             ING_MAYONNAISE(3, UNIT_TBSPS),
             ING_BURGER_BUNS(4),
             ING_GREEN_LEAF_LETTUCE(1),
+            ING_TOMATOES(1),
+            ING_EGGS(4),
             ],
         ),
     Recipe(
