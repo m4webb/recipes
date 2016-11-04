@@ -9,6 +9,7 @@ UNIT_CLOVES = "cloves"
 UNIT_LBS = "lbs"
 UNIT_SLICES = "slices"
 UNIT_EMPTY = ""
+UNIT_SERVINGS = "servings"
 
 TAG_MONDAY = "Monday"
 TAG_TUESDAY = "Tuesday"
@@ -402,8 +403,8 @@ ING_GARLIC = IngredientKind(
     purchase = PURCHASE_MONTHLY,
     )
 
-ING_LEMON = IngredientKind(
-    name = "Lemon",
+ING_LEMONS = IngredientKind(
+    name = "Lemons",
     unit = UNIT_EMPTY,
     store = STORE_GROCERY,
     section= SECTION_PRODUCE,
@@ -882,7 +883,214 @@ ING_PARSLEY = IngredientKind(
     purchase = PURCHASE_WEEKLY,
     )
 
+ING_SALMON_FILLETS = IngredientKind(
+    name = "Salmon fillets",
+    unit = UNIT_EMPTY,
+    store = STORE_COSTCO,
+    section = SECTION_FROZEN,
+    purchase = PURCHASE_MONTHLY,
+    )
+
+ING_ASPARAGUS = IngredientKind(
+    name = "Asparagus",
+    unit = UNIT_EMPTY,
+    store = STORE_GROCERY,
+    section = SECTION_PRODUCE,
+    purchase = PURCHASE_WEEKLY,
+    )
+
+ING_ARUGULA = IngredientKind(
+    name = "Arugula",
+    unit = UNIT_CUPS,
+    store = STORE_GROCERY,
+    section = SECTION_PRODUCE,
+    purchase = PURCHASE_WEEKLY,
+    )
+
+ING_CHERRY_TOMATOES = IngredientKind(
+    name = "Cherry tomatoes",
+    unit = UNIT_CUPS,
+    store = STORE_GROCERY,
+    section = SECTION_PRODUCE,
+    purchase = PURCHASE_WEEKLY,
+    )
+
+ING_CAULIFLOWER = IngredientKind(
+    name = "Cauliflower",
+    unit = UNIT_EMPTY,
+    store = STORE_GROCERY,
+    section = SECTION_PRODUCE,
+    purchase = PURCHASE_WEEKLY,
+    )
+
+ING_SODIUM_CITRATE = IngredientKind(
+    name = "Sodium citrate",
+    unit = UNIT_OZS,
+    store = STORE_SPECIALTY,
+    section = SECTION_SPECIALTY,
+    purchase = PURCHASE_MONTHLY,
+    )
+
+ING_CHEDDAR_CHEESE = IngredientKind(
+    name = "Cheddar cheese",
+    unit = UNIT_OZS,
+    store = STORE_COSTCO,
+    section = SECTION_DAIRY,
+    purchase = PURCHASE_MONTHLY,
+    )
+
+ING_PESTO = IngredientKind(
+    name = "Pesto",
+    unit = UNIT_TBSPS,
+    store = STORE_WINCO,
+    section = SECTION_GROCERY,
+    purchase = PURCHASE_MONTHLY,
+    )
+
+ING_SEASONAL_VEGETABLES = IngredientKind(
+    name = "Seasaonal vegetables",
+    unit = UNIT_SERVINGS,
+    store = STORE_GROCERY,
+    section = SECTION_PRODUCE,
+    purchase = PURCHASE_WEEKLY,
+    )
+
+ING_SICHUAN_PEPPERCORNS = IngredientKind(
+    name = "Sichuan peppercorns",
+    unit = UNIT_TSPS,
+    store = STORE_SPECIALTY,
+    section = SECTION_SPECIALTY,
+    purchase = PURCHASE_MONTHLY,
+    )
+
+ING_VEGETABLE_OIL = IngredientKind(
+    name = "Vegetable oil",
+    unit = UNIT_TBSPS,
+    store = STORE_COSTCO,
+    section = SECTION_GROCERY,
+    purchase = PURCHASE_MONTHLY,
+    )
+
+ING_DRIED_CHILIS = IngredientKind(
+    name = "Dried chilis",
+    unit = UNIT_TBSPS,
+    store = STORE_WINCO,
+    section = SECTION_PRODUCE,
+    purchase = PURCHASE_MONTHLY,
+    )
+
+ING_GREEN_BEANS = IngredientKind(
+    name = "Green beans",
+    unit = UNIT_LBS,
+    store = STORE_GROCERY,
+    section = SECTION_PRODUCE,
+    purchase = PURCHASE_WEEKLY,
+    )
+
 RECIPES = [
+    #Quinoa
+    Recipe(
+        name = "Sichuan Dry-Fried Green Beans",
+        url = "http://www.seriouseats.com/recipes/2015/03/20150305-sichuan-dry-fried-green-bean-broiled-food-lab-recipe.html",
+        tags = [
+            TAG_SIDE,
+            ],
+        ingredients = [
+            ING_SICHUAN_PEPPERCORNS(1, UNIT_TSPS),
+            ING_VEGETABLE_OIL(3, UNIT_TBSPS),
+            ING_DRIED_CHILIS(1, UNIT_TBSPS),
+            ING_GARLIC(4, UNIT_CLOVES),
+            ING_GINGER(1, UNIT_TBSPS),
+            ING_GREEN_ONIONS(1),
+            ING_BLACK_PEPPER(1, UNIT_TSPS),
+            ING_GREEN_BEANS(1, UNIT_LBS),
+            ],
+        ),
+    Recipe(
+        name = "Seasonal Vegetables",
+        tags = [
+            TAG_SIDE,
+            ],
+        ingredients = [
+            ING_SEASONAL_VEGETABLES(4, UNIT_SERVINGS),
+            ],
+        ),
+    Recipe(
+        name = "Arugula and Pesto",
+        tags = [
+            TAG_SIDE,
+            ],
+        ingredients = [
+            ING_ARUGULA(4, UNIT_CUPS),
+            ING_PESTO(4, UNIT_TBSPS),
+            ING_CHEESE_MOZZARELLA(2, UNIT_OZS),
+            ],
+        ),
+    Recipe(
+        name = "Riced Cauliflower and Cheese",
+        tags = [
+            TAG_SIDE,
+            ],
+        ingredients = [
+            ING_CAULIFLOWER(0.5),
+            ING_CHEDDAR_CHEESE(8, UNIT_OZS),
+            ING_SODIUM_CITRATE(0.33, UNIT_OZS),
+            ],
+        ),
+    Recipe(
+        name = "Simple Italian Side Salad",
+        tags = [
+            TAG_SIDE,
+            ],
+        ingredients = [
+            ING_SPINACH(3, UNIT_CUPS),
+            ING_ARUGULA(3, UNIT_CUPS),
+            ING_CHERRY_TOMATOES(1, UNIT_CUPS),
+            ING_OLIVE_OIL(2, UNIT_TBSPS),
+            ING_BASIL(1, UNIT_TBSPS),
+            ING_RED_WINE_VINEGAR(1, UNIT_TBSPS),
+            ING_PARMESAN_CHEESE(2, UNIT_OZS),
+            ING_BLACK_PEPPER(1, UNIT_TSPS),
+            ],
+        ),
+    Recipe(
+        name = "Asparagus Roasted in Butter",
+        tags = [
+            TAG_SIDE,
+            ],
+        ingredients = [
+            ING_ASPARAGUS(1),
+            ING_BUTTER(2, UNIT_TBSPS),
+            ING_GARLIC(1, UNIT_CLOVES),
+            ],
+        ),
+    Recipe(
+        name = "Salmon Roasted in Butter",
+        url = "http://cooking.nytimes.com/recipes/5703-salmon-roasted-in-butter",
+        tags = [
+            TAG_FISH,
+            ],
+        ingredients = [
+            ING_SALMON_FILLETS(3),
+            ING_BUTTER(4, UNIT_TBSPS),
+            ING_PARSLEY(4, UNIT_TBSPS),
+            ING_LEMONS(1),
+            ],
+        ),
+    Recipe(
+        name = "Lemon Garlic Tilapia",
+        url = "http://allrecipes.com/recipe/89261/lemon-garlic-tilapia/",
+        tags = [
+            TAG_FISH,
+            ],
+        ingredients = [
+            ING_TILAPIA_FILLETS(4),
+            ING_LEMONS(1),
+            ING_BUTTER(1, UNIT_TBSPS),
+            ING_GARLIC(2, UNIT_CLOVES),
+            ING_PARSLEY(0.33, UNIT_TBSPS),
+            ],
+        ),
     Recipe(
         name = "Parmesean Crusted Tilapia FIllets",
         url = "http://allrecipes.com/recipe/228056/parmesan-crusted-tilapia-fillets/",
@@ -1162,7 +1370,7 @@ RECIPES = [
         ingredients = [
             ING_MAYONNAISE(3, UNIT_TBSPS),
             ING_GARLIC(3, UNIT_CLOVES),
-            ING_LEMON(1),
+            ING_LEMONS(1),
             ING_OLIVE_OIL(2, UNIT_TBSPS),
             ING_BELL_PEPPERS(1),
             ING_ZUCCHINI(1),
