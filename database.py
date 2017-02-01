@@ -10,6 +10,7 @@ UNIT_LBS = "lbs"
 UNIT_SLICES = "slices"
 UNIT_EMPTY = ""
 UNIT_SERVINGS = "servings"
+UNIT_PACKAGES = "packages"
 
 TAG_MONDAY = "Monday"
 TAG_TUESDAY = "Tuesday"
@@ -25,6 +26,23 @@ TAG_GUESTS = "Guests"
 TAG_CIRCUMSTANCES = "Circumstances"
 TAG_SOUPS = "Soups"
 TAG_FISH = "Fish"
+
+SORT_TAGS = [
+    TAG_MONDAY,
+    TAG_TUESDAY,
+    TAG_WEDNESDAY,
+    TAG_THURSDAY,
+    TAG_FRIDAY,
+    TAG_SATURDAY,
+    TAG_SUNDAY,
+    TAG_CIRCUMSTANCES,
+    TAG_SIDE,
+    TAG_SOUPS,
+    TAG_FISH,
+    TAG_GUESTS,
+    TAG_FUN,
+    TAG_EASY,
+    ]
 
 STORE_COSTCO = "Costco"
 STORE_WINCO = "Winco"
@@ -483,8 +501,8 @@ ING_SPINACH = IngredientKind(
     purchase = PURCHASE_WEEKLY,
     )
 
-ING_ONION = IngredientKind(
-    name = "Onion",
+ING_ONIONS = IngredientKind(
+    name = "Onions",
     unit = UNIT_EMPTY,
     store = STORE_GROCERY,
     section = SECTION_PRODUCE,
@@ -757,7 +775,7 @@ ING_TOMATOES = IngredientKind(
 
 ING_SILKEN_TOFU = IngredientKind(
     name = "Silken Tofu",
-    unit = UNIT_OZS,
+    unit = UNIT_PACKAGES,
     store = STORE_WINCO,
     section = SECTION_PRODUCE,
     purchase = PURCHASE_MONTHLY,
@@ -987,8 +1005,463 @@ ING_GREEN_BEANS = IngredientKind(
     purchase = PURCHASE_WEEKLY,
     )
 
+ING_WHOLE_WHEAT_FLOUR = IngredientKind(
+    name = "Whole wheat flour",
+    unit = UNIT_CUPS,
+    store = STORE_WINCO,
+    section = SECTION_BAKING,
+    purchase = PURCHASE_MONTHLY,
+    )
+
+ING_QUINOA = IngredientKind(
+    name = "Quinoa",
+    unit = UNIT_CUPS,
+    store = STORE_WINCO,
+    section = SECTION_BULK,
+    purchase = PURCHASE_MONTHLY,
+    )
+
+ING_MINT = IngredientKind(
+    name = "Mint",
+    unit = UNIT_TBSPS,
+    store = STORE_GROCERY,
+    section = SECTION_PRODUCE,
+    purchase = PURCHASE_WEEKLY,
+    )
+
+ING_CUCUMBERS = IngredientKind(
+    name = "Cucumbers",
+    unit = UNIT_EMPTY,
+    store = STORE_GROCERY,
+    section = SECTION_PRODUCE,
+    purchase = PURCHASE_WEEKLY,
+    )
+
+ING_WHOLE_WHEAT_PITAS = IngredientKind(
+    name = "Whole wheat pitas",
+    unit = UNIT_EMPTY,
+    store = STORE_GROCERY,
+    section = SECTION_GROCERY,
+    purchase = PURCHASE_WEEKLY,
+    )
+
+ING_CURRY_POWDER = IngredientKind(
+    name = "Curry powder",
+    unit = UNIT_TSPS,
+    store = STORE_WINCO,
+    section = SECTION_BULK,
+    purchase = PURCHASE_MONTHLY,
+    )
+
+ING_BROWN_LENTILS = IngredientKind(
+    name = "Brown lentils",
+    unit = UNIT_CUPS,
+    store = STORE_WINCO,
+    section = SECTION_BULK,
+    purchase = PURCHASE_MONTHLY,
+    )
+
+ING_TOFU = IngredientKind(
+    name = "Tofu",
+    unit = UNIT_PACKAGES,
+    store = STORE_WINCO,
+    section = SECTION_PRODUCE,
+    purchase = PURCHASE_MONTHLY,
+    )
+
+ING_PEANUTS = IngredientKind(
+    name = "Peanuts",
+    unit = UNIT_CUPS,
+    store = STORE_WINCO,
+    section = SECTION_BULK,
+    purchase = PURCHASE_MONTHLY,
+    )
+
+ING_BROCCOLI = IngredientKind(
+    name = "Broccoli",
+    unit = UNIT_EMPTY,
+    store = STORE_GROCERY,
+    section = SECTION_GROCERY,
+    purchase = PURCHASE_WEEKLY,
+    )
+
+ING_KALE = IngredientKind(
+    name = "Kale",
+    unit = UNIT_CUPS,
+    store = STORE_GROCERY,
+    section = SECTION_GROCERY,
+    purchase = PURCHASE_WEEKLY,
+    )
+
+ING_SALAD_KIT = IngredientKind(
+    name = "Salad kit",
+    unit = UNIT_EMPTY,
+    store = STORE_GROCERY,
+    section = SECTION_GROCERY,
+    purchase = PURCHASE_WEEKLY,
+    )
+
+ING_MUSTARD = IngredientKind(
+    name = "Mustard",
+    unit = UNIT_TSPS,
+    store = STORE_WINCO,
+    section = SECTION_GROCERY,
+    purchase = PURCHASE_MONTHLY,
+    )
+
+ING_BAKING_POWDER = IngredientKind(
+    name = "Baking powder",
+    unit = UNIT_TSPS,
+    store = STORE_WINCO,
+    section = SECTION_BAKING,
+    purchase = PURCHASE_MONTHLY,
+    )
+
+ING_CRUSHED_RED_PEPPER = IngredientKind(
+    name = "Crushed red pepper",
+    unit = UNIT_TSPS,
+    store = STORE_WINCO,
+    section = SECTION_BULK,
+    purchase = PURCHASE_MONTHLY,
+    )
+
+ING_MOLASSES = IngredientKind(
+    name = "Molasses",
+    unit = UNIT_TBSPS,
+    store = STORE_WINCO,
+    section = SECTION_BAKING,
+    purchase = PURCHASE_MONTHLY,
+    )
+
+ING_APPLE_CIDER_VINEGAR = IngredientKind(
+    name = "Apple cider vinegar",
+    unit = UNIT_TBSPS,
+    store = STORE_WINCO,
+    section = SECTION_GROCERY,
+    purchase = PURCHASE_MONTHLY,
+    )
+
+ING_MUSTARD_POWDER = IngredientKind(
+    name = "Mustard powder",
+    unit = UNIT_TSPS,
+    store = STORE_WINCO,
+    section = SECTION_BULK,
+    purchase = PURCHASE_MONTHLY,
+    )
+
+ING_TOMATO_SAUCE = IngredientKind(
+    name = "Tomato Sauce",
+    unit = UNIT_CANS,
+    store = STORE_WINCO,
+    section = SECTION_GROCERY,
+    purchase = PURCHASE_MONTHLY,
+    )
+
+ING_SOUR_CREAM = IngredientKind(
+    name = "Sour cream",
+    unit = UNIT_TBSPS,
+    store = STORE_GROCERY,
+    section = SECTION_DAIRY,
+    purchase = PURCHASE_WEEKLY,
+    )
+
+ING_WHEAT_BERRIES = IngredientKind(
+    name = "Wheat berries",
+    unit = UNIT_CUPS,
+    store = STORE_WINCO,
+    section = SECTION_BULK,
+    purchase = PURCHASE_MONTHLY,
+    )
+
+ING_PURPLE_CABBAGE = IngredientKind(
+    name = "Purple cabbage",
+    unit = UNIT_EMPTY,
+    store = STORE_GROCERY,
+    section = SECTION_GROCERY,
+    purchase = PURCHASE_WEEKLY,
+    )
+
+ING_BRUSSEL_SPROUTS = IngredientKind(
+    name = "Brussel sprouts",
+    unit = UNIT_EMPTY,
+    store = STORE_GROCERY,
+    section = SECTION_GROCERY,
+    purchase = PURCHASE_WEEKLY,
+    )
+
+ING_SEA_SALT = IngredientKind(
+    name = "Sea Salt",
+    unit = UNIT_TSPS,
+    store = STORE_WINCO,
+    section = SECTION_BULK,
+    purchase = PURCHASE_MONTHLY,
+    )
+
+ING_TAHINI = IngredientKind(
+    name = "Tahini",
+    unit = UNIT_CUPS,
+    store = STORE_WINCO,
+    section = SECTION_GROCERY,
+    purchase = PURCHASE_MONTHLY,
+    )
+
+ING_SPRING_MIX_SALAD = IngredientKind(
+    name = "Spring mix salad",
+    unit = UNIT_CUPS,
+    store = STORE_GROCERY,
+    section = SECTION_PRODUCE,
+    purchase = PURCHASE_WEEKLY,
+    )
+
+ING_DRIED_CHICKPEAS = IngredientKind(
+    name = "Dried chickpeas",
+    unit = UNIT_CUPS,
+    store = STORE_WINCO,
+    section = SECTION_BULK,
+    purchase = PURCHASE_MONTHLY,
+    )
+
+ING_DILL = IngredientKind(
+    name = "Dill",
+    unit = UNIT_TBSPS,
+    store = STORE_GROCERY,
+    section = SECTION_PRODUCE,
+    purchase = PURCHASE_WEEKLY,
+    )
+
 RECIPES = [
-    #Quinoa
+    # Risotto
+    # Mushroom and charred corn tacos
+    Recipe(
+        name = "Peanut-Sesame Slaw with Soba Noodles",
+        url = "http://cookieandkate.com/2014/peanut-sesame-slaw-with-soba-noodles/",
+        tags = [
+            TAG_MONDAY,
+            ],
+        ingredients = [
+            ING_SOBA_NOODLES(2, UNIT_CUPS),
+            ING_PURPLE_CABBAGE(1),
+            ING_BRUSSEL_SPROUTS(12),
+            ING_CARROTS(4),
+            ING_GREEN_ONIONS(1),
+            ING_PEANUT_BUTTER(8, UNIT_TBSPS),
+            ING_RICE_WINE_VINEGAR(3, UNIT_TBSPS),
+            ING_SESAME_OIL(3, UNIT_TBSPS),
+            ING_SOY_SAUCE(3, UNIT_TBSPS),
+            ING_HONEY(2, UNIT_TBSPS),
+            ING_GINGER(1, UNIT_TBSPS),
+            ING_GARLIC(2, UNIT_CLOVES),
+            ING_PEANUTS(1, UNIT_CUPS),
+            ING_CILANTRO(1),
+            ING_LIMES(1),
+            ],
+        ),
+    Recipe(
+        name = "Arugula, Carrot and Chickpea Salad with Wheat Berries",
+        url = "http://cookieandkate.com/2012/arugula-carrot-and-chickpea-salad-with-wheat-berries/",
+        tags = [
+            TAG_MONDAY,
+            ],
+        ingredients = [
+            ING_WHEAT_BERRIES(1, UNIT_CUPS),
+            ING_CHICKPEAS(2, UNIT_CANS),
+            ING_CARROTS(4),
+            ING_CHEESE_FETA(4, UNIT_OZS),
+            ING_ARUGULA(6, UNIT_CUPS),
+            ING_OLIVE_OIL(4, UNIT_TBSPS),
+            ING_HONEY(0.67, UNIT_TBSPS),
+            ING_GARLIC(2, UNIT_CLOVES),
+            ING_CRUSHED_RED_PEPPER(0.25, UNIT_TSPS),
+            ING_LEMONS(1),
+            ING_BLACK_PEPPER(0.5, UNIT_TSPS),
+            ],
+        ),
+    Recipe(
+        name = "Quinoa Black Bean Burrito Bowl",
+        url = "https://toriavey.com/toris-kitchen/2012/05/quinoa-black-bean-burrito-bowls/",
+        tags = [
+            TAG_SUNDAY,
+            ],
+        ingredients = [
+            ING_QUINOA(2, UNIT_CUPS),
+            ING_OLIVE_OIL(2, UNIT_TBSPS),
+            ING_ONIONS(0.5),
+            ING_GARLIC(2, UNIT_CLOVES),
+            ING_BLACK_BEANS(2, UNIT_CANS),
+            ING_CILANTRO(1),
+            ING_LIMES(1),
+            ING_GREEN_LEAF_LETTUCE(1),
+            ING_CHEDDAR_CHEESE(2, UNIT_OZS),
+            ING_SOUR_CREAM(2, UNIT_TBSPS),
+            ING_SALSA(1, UNIT_CUPS),
+            ING_AVOCADOS(1),
+            ],
+        ),
+    Recipe(
+        name = "Quinoa Bowl with Poached Egg and Avocado",
+        tags = [
+            TAG_SUNDAY,
+            ],
+        ingredients = [
+            ING_QUINOA(2, UNIT_CUPS),
+            ING_EGGS(6),
+            ING_AVOCADOS(2),
+            ING_GREEN_ONIONS(1),
+            ],
+        ),
+    Recipe(
+        name = "Sloppy Lentils",
+        tags = [
+            TAG_WEDNESDAY,
+            ],
+        ingredients = [
+            ING_OLIVE_OIL(2, UNIT_TBSPS),
+            ING_ONIONS(1),
+            ING_BROWN_LENTILS(1, UNIT_CUPS),
+            ING_VEGETABLE_STOCK(2, UNIT_CUPS),
+            ING_TOMATO_SAUCE(1, UNIT_CANS),
+            ING_MOLASSES(1, UNIT_TBSPS),
+            ING_APPLE_CIDER_VINEGAR(1, UNIT_TBSPS),
+            ING_SOY_SAUCE(1, UNIT_TBSPS),
+            ING_TOMATO_PASTE(0.5, UNIT_CANS),
+            ING_GARLIC_POWDER(1, UNIT_TSPS),
+            ING_MUSTARD_POWDER(1, UNIT_TSPS),
+            ING_BURGER_BUNS(4),
+            ],
+        ),
+    Recipe(
+        name = "Baked Falafel with Creamy Tahini Dressing and Salad",
+        url = "http://cookieandkate.com/2012/baked-falafel/",
+        tags = [
+            TAG_MONDAY,
+            ],
+        ingredients = [
+            ING_OLIVE_OIL(4, UNIT_TBSPS),
+            ING_DRIED_CHICKPEAS(1, UNIT_CUPS),
+            ING_RED_ONIONS(1),
+            ING_PARSLEY(1),
+            ING_CILANTRO(1),
+            ING_GARLIC(3, UNIT_CLOVES),
+            ING_CUMIN(0.25, UNIT_TSPS),
+            ING_CINNAMON(0.1, UNIT_TBSPS),
+            ING_BLACK_PEPPER(0.5, UNIT_TSPS),
+            ING_SEA_SALT(1, UNIT_TSPS),
+            ING_TAHINI(0.25, UNIT_CUPS),
+            ING_LEMONS(1),
+            ING_MISO(1, UNIT_TBSPS),
+            ING_GARLIC(2, UNIT_CLOVES),
+            ING_DILL(2, UNIT_TBSPS),
+            ING_CAYENNE_PEPPER(0.1, UNIT_TSPS),
+            ING_SPRING_MIX_SALAD(4, UNIT_CUPS),
+            ING_CHERRY_TOMATOES(1),
+            ING_CUCUMBERS(1),
+            ING_CHEESE_FETA(4, UNIT_OZS),
+            ING_WHOLE_WHEAT_PITAS(4),
+            ],
+        ),
+    Recipe(
+        name = "Salad Kit",
+        tags = [
+            TAG_SIDE,
+            TAG_EASY,
+            ],
+        ingredients = [
+            ING_SALAD_KIT(1),
+            ],
+        ),
+    Recipe(
+        name = "Peanutty Quinoa Bowls",
+        url = "http://ohmyveggies.com/recipe-peanutty-quinoa-bowls-two-make-baked-tofu/",
+        tags = [
+            TAG_THURSDAY,
+            ],
+        ingredients = [
+            ING_QUINOA(1, UNIT_CUPS),
+            ING_OLIVE_OIL(1, UNIT_TBSPS),
+            ING_RED_BELL_PEPPERS(1),
+            ING_BROCCOLI(1),
+            ING_PEANUT_BUTTER(6, UNIT_TBSPS),
+            ING_LIMES(1),
+            ING_SOY_SAUCE(0.33, UNIT_TBSPS),
+            ING_GINGER(0.33, UNIT_TBSPS),
+            ING_TOFU(1, UNIT_PACKAGES),
+            ING_PEANUTS(0.5, UNIT_CUPS),
+            ],
+        ),
+    Recipe(
+        name = "Spiced Lentil Soup",
+        url = "http://cookieandkate.com/2015/vegan-lentil-soup-recipe/",
+        tags = [
+            TAG_SOUPS,
+            ],
+        ingredients = [
+            ING_OLIVE_OIL(4, UNIT_TBSPS),
+            ING_ONIONS(1),
+            ING_CARROTS(2),
+            ING_GARLIC(4, UNIT_CLOVES),
+            ING_CUMIN(2, UNIT_TSPS),
+            ING_CURRY_POWDER(1, UNIT_TSPS),
+            ING_THYME(0.1, UNIT_TBSPS),
+            ING_DICED_TOMATOES(1, UNIT_CANS),
+            ING_BROWN_LENTILS(1, UNIT_CUPS),
+            ING_VEGETABLE_STOCK(4, UNIT_CUPS),
+            ING_KALE(2, UNIT_CUPS),
+            ING_LEMONS(1),
+            ],
+        ),
+    Recipe(
+        name = "Fried Chickpea and Arugula Pita Sandwiches",
+        tags = [
+            TAG_WEDNESDAY,
+            ],
+        ingredients = [
+            ING_GREEK_YOGURT(16, UNIT_TBSPS),
+            ING_MINT(3, UNIT_TBSPS),
+            ING_LIMES(1),
+            ING_GARLIC(2, UNIT_CLOVES),
+            ING_CUCUMBERS(1),
+            ING_WHOLE_WHEAT_PITAS(4),
+            ING_CHICKPEAS(2, UNIT_CANS),
+            ING_OLIVE_OIL(2, UNIT_TBSPS),
+            ING_CUMIN(1, UNIT_TSPS),
+            ING_SMOKED_PAPRIKA(1, UNIT_TSPS),
+            ING_BLACK_PEPPER(1, UNIT_TSPS),
+            ING_LEMONS(1),
+            ING_ARUGULA(4, UNIT_CUPS),
+            ING_TOMATOES(1),
+            ],
+        ),
+    Recipe(
+        name = "Quinoa",
+        tags = [
+            TAG_SIDE,
+            ],
+        ingredients = [
+            ING_QUINOA(2, UNIT_CUPS),
+            ],
+        ),
+    Recipe(
+        name = "Whole Wheat Pizza",
+        tags = [
+            TAG_FRIDAY,
+            TAG_SATURDAY,
+            TAG_SUNDAY,
+            TAG_FUN,
+            TAG_GUESTS,
+            ],
+        ingredients = [
+            ING_WHOLE_WHEAT_FLOUR(4, UNIT_CUPS),
+            ING_CHEESE_MOZZARELLA(16, UNIT_OZS),
+            ING_FRESH_BASIL(1),
+            ING_DICED_TOMATOES(1, UNIT_CANS),
+            ING_TOMATO_PASTE(1, UNIT_CANS),
+            ING_BASIL(1, UNIT_TBSPS),
+            ING_OREGANO(0.5, UNIT_TBSPS),
+            ING_RED_WINE_VINEGAR(1, UNIT_TBSPS),
+            ING_MUSHROOMS(1, UNIT_LBS),
+            ING_YEAST(1, UNIT_TBSPS),
+            ],
+        ),
     Recipe(
         name = "Sichuan Dry-Fried Green Beans",
         url = "http://www.seriouseats.com/recipes/2015/03/20150305-sichuan-dry-fried-green-bean-broiled-food-lab-recipe.html",
@@ -1069,6 +1542,7 @@ RECIPES = [
         url = "http://cooking.nytimes.com/recipes/5703-salmon-roasted-in-butter",
         tags = [
             TAG_FISH,
+            TAG_TUESDAY,
             ],
         ingredients = [
             ING_SALMON_FILLETS(3),
@@ -1082,6 +1556,7 @@ RECIPES = [
         url = "http://allrecipes.com/recipe/89261/lemon-garlic-tilapia/",
         tags = [
             TAG_FISH,
+            TAG_TUESDAY,
             ],
         ingredients = [
             ING_TILAPIA_FILLETS(4),
@@ -1096,6 +1571,7 @@ RECIPES = [
         url = "http://allrecipes.com/recipe/228056/parmesan-crusted-tilapia-fillets/",
         tags = [
             TAG_FISH,
+            TAG_TUESDAY,
             ],
         ingredients = [
             ING_TILAPIA_FILLETS(4),
@@ -1110,7 +1586,8 @@ RECIPES = [
         name = "Cajun-Spiced Tilapia",
         url = "http://www.food.com/recipe/cajun-spiced-tilapia-487398",
         tags = [
-            TAG_FISH
+            TAG_FISH,
+            TAG_TUESDAY,
             ],
         ingredients = [
             ING_TILAPIA_FILLETS(4),
@@ -1151,12 +1628,12 @@ RECIPES = [
             ING_WAKAME(1, UNIT_OZS),
             ING_MISO(4, UNIT_TBSPS),
             ING_EGGS(8),
-            ING_SILKEN_TOFU(12, UNIT_OZS),
+            ING_SILKEN_TOFU(1, UNIT_PACKAGES),
             ING_GREEN_ONIONS(1),
             ],
         ),
     Recipe(
-        name = "Salad - Bleu Cheese and Walnut",
+        name = "Bleu Cheese and Walnut Salad",
         tags = [
             TAG_MONDAY,
             ],
@@ -1265,7 +1742,7 @@ RECIPES = [
         ingredients = [
             ING_TORTILLAS(6),
             ING_BLACK_BEANS(1, UNIT_CANS),
-            ING_ONION(1),
+            ING_ONIONS(1),
             ING_CHEESE_MOZZARELLA(6, UNIT_OZS),
             ING_PATO(1, UNIT_CANS),
             ],
@@ -1278,7 +1755,7 @@ RECIPES = [
             ],
         ingredients = [
             ING_OLIVE_OIL(2, UNIT_TBSPS),
-            ING_ONION(1),
+            ING_ONIONS(1),
             ING_FROZEN_CORN(1.5, UNIT_CUPS),
             ING_BROWN_RICE(0.75, UNIT_CUPS),
             ING_BLACK_BEANS(1, UNIT_CANS),
@@ -1432,6 +1909,14 @@ RECIPES = [
         name = "Leftovers",
         tags = [
             TAG_EASY,
+            ],
+        ingredients = [
+            ],
+        ),
+    Recipe(
+        name = "New Recipe",
+        tags = [
+            TAG_FRIDAY,
             ],
         ingredients = [
             ],

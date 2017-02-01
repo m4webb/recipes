@@ -28,7 +28,7 @@ class RecipeApp(QWidget):
                 if tag not in recipesByTag:
                     recipesByTag[tag] = []
                 recipesByTag[tag].append(recipe)
-        for tag in sorted(recipesByTag.keys()):
+        for tag in sorted(recipesByTag.keys(), key=database.SORT_TAGS.index):
             recipeList.addItem(QListWidgetItem(tag))
             for recipe in recipesByTag[tag]:
                 item = RecipeItem(recipe)
